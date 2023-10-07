@@ -1,0 +1,20 @@
+{
+    "name": "Import Electronic Documents",
+    "summary": """""",
+    "author": "Odoo Community Association (OCA)," "Carlos Lopez, Luis Romero",
+    "website": "https://github.com/OCA/l10n-ecuador",
+    "license": "LGPL-3",
+    "category": "Account",
+    "version": "15.0.1.0.0",
+    "depends": ["account", "l10n_ec_account_edi"],
+    "data": [
+        "security/security.xml",
+        "security/ir.model.access.csv",
+        "data/cron_jobs.xml",
+        "data/action_server_data.xml",
+        "data/edi_authorization.xml",
+        "wizard/wizard_import_edi_view.xml",
+        "views/l10n_ec_edi_imported_view.xml",
+        "views/res_config_view.xml",
+    ],
+}

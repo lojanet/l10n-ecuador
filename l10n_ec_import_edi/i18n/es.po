@@ -1,0 +1,929 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ec_import_edi
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-02 15:53+0000\n"
+"PO-Revision-Date: 2021-06-02 11:04-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.2.3\n"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.res_config_settings_electronic_form_view
+msgid ""
+"<span class=\"o_form_label\">Email for read XML</span>\n"
+"                                <br/>"
+msgstr ""
+"<span class = \"o_form_label\"> Correo electrónico para lectura XML </"
+"span>\n"
+"                                 <br/>"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__l10n_ec_xml_access_key
+msgid "Access Key"
+msgstr "Clave de Acceso"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_needaction
+msgid "Action Needed"
+msgstr "Acción necesaria"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoración de excepción de actividad"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__activity_state
+msgid "Activity State"
+msgstr "Estado de actividad"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.wizard_import_edi_resume_form_view
+msgid ""
+"After downloading the observations report you can click to the button\n"
+"                    <b>Show Documents</b>\n"
+"                    to open\n"
+"                    the invoices created"
+msgstr ""
+"Después de descargar el reporte de observaciones puede dar clic al botón\n"
+"                    <b>Mostrar Documentos</b>\n"
+"                    para abrir\n"
+"                    los registros creados"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_withhold__l10n_ec_amount_imported
+msgid "Amount Imported"
+msgstr "Monto Importado"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_attachment_count
+msgid "Attachment Count"
+msgstr "Recuento de archivos adjuntos"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.l10n_ec_edi_imported_search_view
+msgid "Authorization Date"
+msgstr "Fecha de autorización"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__base_amount
+msgid "Base Amount"
+msgstr "Cantidad base"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/wizard/wizard_import_edi.py:0
+#, python-format
+msgid "Can not download file with access key: %s"
+msgstr "No se puede descargar el archivo con la clave de acceso: %s"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/models/account_move.py:0
+#: code:addons/l10n_ec_import_edi/models/withhold.py:0
+#, python-format
+msgid "Can't find company for current xml file, please review"
+msgstr "No puedo encontrar la empresa para el archivo xml actual, revíselo"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields.selection,name:l10n_ec_import_edi.selection__l10n_ec_edi_imported__state__cancel
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/models/account_move.py:0
+#: code:addons/l10n_ec_import_edi/models/l10n_ec_edi_imported.py:0
+#, python-format
+msgid "No valid document type found with code: %s"
+msgstr "No se encontró ningún tipo de documento válido con el código: %s"
+
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/models/l10n_ec_edi_imported.py:0
+#, python-format
+msgid "Cant'n unlink Document, Try cancel!"
+msgstr "No puede eliminar el documento. ¡Intente cancelar!"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.wizard_import_edi_form_view
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.wizard_import_edi_resume_form_view
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model,name:l10n_ec_import_edi.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__company_id
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.l10n_ec_edi_imported_search_view
+msgid "Company"
+msgstr "Empresa"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model,name:l10n_ec_import_edi.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de Configuración"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.l10n_ec_edi_imported_form_view
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: l10n_ec_import_edi
+#: model:ir.actions.server,name:l10n_ec_import_edi.action_l10n_ec_edi_imported_validate
+msgid "Confirmar Registros"
+msgstr "Confirmar Registros"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_res_company__l10n_ec_import_create_document_automatic
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_res_config_settings__l10n_ec_import_create_document_automatic
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_webkul_website_addons__l10n_ec_import_create_document_automatic
+msgid "Create Document Automatic?"
+msgstr "¿Crear documento automáticamente?"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_res_company__l10n_ec_import_create_product
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_res_config_settings__l10n_ec_import_create_product
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_webkul_website_addons__l10n_ec_import_create_product
+msgid "Create Product if not exists?"
+msgstr "¿Crear producto si no existe?"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__create_uid
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__create_uid
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_logs__create_uid
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_wizard_import_edi__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__create_date
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__create_date
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_logs__create_date
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_wizard_import_edi__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields.selection,name:l10n_ec_import_edi.selection__l10n_ec_edi_imported__internal_type__credit_note
+msgid "Credit Notes"
+msgstr "Notas de crédito"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__l10n_ec_authorization_date
+msgid "Date Authorization"
+msgstr "Fecha de autorización"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__invoice_date
+msgid "Date Emission"
+msgstr "Fecha de emisión"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields.selection,name:l10n_ec_import_edi.selection__l10n_ec_edi_imported__internal_type__debit_note
+msgid "Debit Notes"
+msgstr "Notas de  débito"
+
+#. module: l10n_ec_import_edi
+#: model:ir.actions.server,name:l10n_ec_import_edi.ir_cron_xml_offline_ir_actions_server
+#: model:ir.cron,cron_name:l10n_ec_import_edi.ir_cron_xml_offline
+#: model:ir.cron,name:l10n_ec_import_edi.ir_cron_xml_offline
+msgid "Descargar/Crear xml electronicos"
+msgstr "Descargar/Crear xml electronicos"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__document_line_ids
+msgid "Details"
+msgstr "Detalles"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__discount
+msgid "Discount"
+msgstr "Descuento"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__display_name
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__display_name
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_logs__display_name
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_xml_parser__display_name
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_wizard_import_edi__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__document_id
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_logs__document_id
+msgid "Document Imported"
+msgstr "Documento importado"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__l10n_ec_original_invoice_id
+msgid "Document Mod"
+msgstr "Modo de documento"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__l10n_latam_document_number
+msgid "Document Number"
+msgstr "Número del Documento"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__l10n_latam_document_type_id
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.l10n_ec_edi_imported_search_view
+msgid "Document Type"
+msgstr "Tipo de Documento"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__move_id
+msgid "Document related"
+msgstr "Documento relacionado"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/wizard/wizard_import_edi.py:0
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_wizard_import_edi__document_ids
+#, python-format
+msgid "Documents Imported"
+msgstr "Documentos importados"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.l10n_ec_edi_imported_search_view
+msgid "Documents Pending"
+msgstr "Documentos pendientes"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/wizard/wizard_import_edi.py:0
+#, python-format
+msgid "Documents not imported %s.xls"
+msgstr "Documentos no importados %s.xls"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields.selection,name:l10n_ec_import_edi.selection__l10n_ec_edi_imported__state__done
+msgid "Done"
+msgstr "Hecho"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.l10n_ec_edi_imported_form_view
+msgid "Download XML File"
+msgstr "Descargar archivo XML"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_wizard_import_edi__background
+msgid "Download in Background"
+msgstr "Descargar en Segundo Plano"
+
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields.selection,name:l10n_ec_import_edi.selection__l10n_ec_edi_imported__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model,name:l10n_ec_import_edi.model_l10n_ec_withhold
+msgid "Ecuadorian Withhold"
+msgstr "Retención de Impuestos Ecuatoriano"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__l10n_ec_electronic_authorization
+msgid "Electronic Authorization"
+msgstr "Autorización electrónica"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/models/account_move.py:0
+#, python-format
+msgid ""
+"Electronic Authorization is for Credit Note, but current document is not "
+"same type, please create document on appropriated menu"
+msgstr ""
+"La autorización electronica es para Notas de Crédito, pero el documento "
+"actual no es del mismo tipo, por favor cree el documento en el menu "
+"correspondiente"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/models/account_move.py:0
+#, python-format
+msgid ""
+"Electronic Authorization is for Debit Note, but current document is not "
+"same type, please create document on appropriated menu"
+msgstr ""
+"La autorización electronica es para Notas de Debito, pero el documento "
+"actual no es del mismo tipo, por favor cree el documento en el menu "
+"correspondiente"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/models/account_move.py:0
+#, python-format
+msgid ""
+"Electronic Authorization is for Invoice, but current document is not same "
+"type, please create document on appropriated menu"
+msgstr ""
+"La autorización electronica es para Facturas, pero el documento actual no "
+"es del mismo tipo, por favor cree el documento en el menu correspondiente"
+
+#. module: l10n_ec_import_edi
+#: model:ir.actions.act_window,name:l10n_ec_import_edi.action_l10n_ec_edi_imported
+#: model:ir.ui.menu,name:l10n_ec_import_edi.l10n_ec_edi_imported_menu
+msgid "Electronic Documents Imported"
+msgstr "Documentos electrónicos importados"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/wizard/wizard_import_edi.py:0
+#, python-format
+msgid "Error process line %(nline)s %(line)s. NUMERO_AUTORIZACION is empty"
+msgstr "Error en la línea de proceso %(nline)s %(line)s. NUMERO AUTORIZACIÓN está vacío"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/wizard/wizard_import_edi.py:0
+#, python-format
+msgid "Error process line %(line)s. Error detail: %(ex)s"
+msgstr "Error en la línea de proceso %(line)s. Error de detalles: %(ex)s"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/wizard/wizard_import_edi.py:0
+#, python-format
+msgid "Error validating xml files. Error detail: %s"
+msgstr "Error validando archivo XML. Detalle del error: %s"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__l10n_ec_legacy_document_date
+msgid "External Document Date"
+msgstr "Fecha del documento externo"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__l10n_ec_legacy_document_number
+msgid "External Document Number"
+msgstr "Número de documento externo"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__failed_message_ids
+msgid "Failed Messages"
+msgstr "Mensajes Fallidos"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/wizard/wizard_import_edi.py:0
+#, python-format
+msgid "File does not has the expected structure"
+msgstr "El archivo no tiene la estructura esperada"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_wizard_import_edi__name
+msgid "File name"
+msgstr "Nombre del archivo"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_wizard_import_edi__file_content
+msgid "File to import"
+msgstr "Archivo para importar"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.l10n_ec_edi_imported_search_view
+msgid "Filters"
+msgstr "Filtros"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (Canales)"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Socios)"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/models/l10n_ec_edi_imported.py:0
+#, python-format
+msgid "Generated Documents"
+msgstr "Documentos Generados"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.l10n_ec_edi_imported_search_view
+msgid "Group by"
+msgstr "Agrupar por"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_withhold__has_amount_diff
+msgid "Has amount Differences?"
+msgstr "Tiene diferencia en montos?"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__id
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__id
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_logs__id
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_xml_parser__id
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_wizard_import_edi__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields.selection,name:l10n_ec_import_edi.selection__l10n_ec_edi_imported_line__type__iva
+msgid "IVA"
+msgstr ""
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,help:l10n_ec_import_edi.field_l10n_ec_edi_imported__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono para indicar una actividad de excepción."
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,help:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_needaction
+#: model:ir.model.fields,help:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcado, los mensajes nuevos requieren su atención."
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,help:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_has_error
+#: model:ir.model.fields,help:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si está marcado, algunos mensajes tienen un error de entrega."
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.wizard_import_edi_form_view
+msgid "Import File"
+msgstr "Archivo para importar"
+
+#. module: l10n_ec_import_edi
+#: model:ir.actions.act_window,name:l10n_ec_import_edi.action_wizard_import_edi_tree_view
+#: model:ir.ui.menu,name:l10n_ec_import_edi.wizard_import_edi_menu
+msgid "Import electronic documents"
+msgstr "Importar documentos electrónicos"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model,name:l10n_ec_import_edi.model_l10n_ec_edi_imported
+msgid "Imported Document Electronics"
+msgstr "Importar documentos electrónicos"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model,name:l10n_ec_import_edi.model_l10n_ec_edi_imported_line
+msgid "Imported Document's Detail"
+msgstr "Detalle del documento importado"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model,name:l10n_ec_import_edi.model_l10n_ec_edi_imported_logs
+msgid "Imported Document's Logs"
+msgstr "Registros de documentos importados"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.res_config_settings_electronic_form_view
+msgid ""
+"Incoming mail from this address evaluate attachment XML files to create\n"
+"                                documents(invoice, withhold)"
+msgstr ""
+"Email para procesar los archivos adjuntos XML para crear\n"
+"documentos (factura, Nota credito, Nota Venta, Retención)"
+
+
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/models/account_move.py:0
+#: code:addons/l10n_ec_import_edi/models/withhold.py:0
+#, python-format
+msgid "Information for User"
+msgstr "Información para el usuario"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__internal_type
+msgid "Internal Type"
+msgstr "Tipo interno"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields.selection,name:l10n_ec_import_edi.selection__l10n_ec_edi_imported__internal_type__invoice
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__l10n_ec_legacy_document
+msgid "Is External Doc. Modified?"
+msgstr "¿Se ha modificado el documento externo?"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_is_follower
+msgid "Is Follower"
+msgstr "Es seguidor"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model,name:l10n_ec_import_edi.model_account_move
+msgid "Journal Entries"
+msgstr "Asientos contables"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported____last_update
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line____last_update
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_logs____last_update
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_xml_parser____last_update
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_wizard_import_edi____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__write_uid
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__write_uid
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_logs__write_uid
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_wizard_import_edi__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__write_date
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__write_date
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_logs__write_date
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_wizard_import_edi__write_date
+msgid "Last Updated on"
+msgstr "Ultima actualización en"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.l10n_ec_edi_imported_form_view
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__document_logs_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.l10n_ec_edi_imported_form_view
+msgid "Logs"
+msgstr "Registros"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_res_company__l10n_ec_import_alias_id
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_res_config_settings__l10n_ec_import_alias_id
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_webkul_website_addons__l10n_ec_import_alias_id
+msgid "Mail for electronic documents"
+msgstr "Correo para documentos electrónicos"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Archivos Adjunto Principal"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.res_config_settings_electronic_form_view
+msgid ""
+"Mark option if you want create documents from XML automatically without "
+"waiting to user\n"
+"                                review document(Automatic Process)"
+msgstr ""
+"Marque la opción si desea crear documentos a partir de XML automáticamente "
+"sin esperar al usuario\n"
+"                                 revisar documento (proceso automático)"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.res_config_settings_electronic_form_view
+msgid ""
+"Mark option if you want create products from XML automatically when product "
+"is not find\n"
+"                                on system"
+msgstr ""
+"Marque la opción si quiere crear productos desde los xml de manera "
+"automática cuando el producto no exista\n"
+"                                en el sistema"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.res_config_settings_electronic_form_view
+msgid ""
+"Mark the option if you want to verify the data of the electronic document."
+msgstr ""
+"Marque la opción si quiere verificar la información de documentos "
+"electrónicos."
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.res_config_settings_electronic_form_view
+msgid ""
+"Mark the option if you want to verify the document related(on withholding) "
+"exists on\n"
+"                                system."
+msgstr ""
+"Marque la opción si desea verificar que el documento relacionado(en "
+"retenciones) exista en el\n"
+"                                sistema."
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_logs__name
+msgid "Message"
+msgstr "Mensaje"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de entrega de mensajes"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Próxima fecha límite de actividad"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__activity_summary
+msgid "Next Activity Summary"
+msgstr "Siguiente resumen de actividad"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__activity_type_id
+msgid "Next Activity Type"
+msgstr "Siguiente tipo de actividad"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/models/l10n_ec_edi_imported.py:0
+#, python-format
+msgid ""
+"Not exist Invoice related with number: %s, please review Withholding: %s"
+msgstr ""
+"No existe la factura relacionada con numero: %s, por favor verifique la "
+"retención: %s"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_wizard_import_edi__file_note
+msgid "Notes"
+msgstr "Notas"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de errores"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,help:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensajes que requieren una acción"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,help:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de entrega"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,help:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes no leídos"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/wizard/wizard_import_edi.py:0
+#, python-format
+msgid "OBSERVATIONS FOUND DURING THE IMPORT"
+msgstr "OBSERVACIONES ENCONTRADAS DURANTE LA IMPORTACIÓN"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model,name:l10n_ec_import_edi.model_l10n_ec_xml_parser
+msgid "Parser de Xml electronicos"
+msgstr "Parser de Xml electrónicos"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__partner_id
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.l10n_ec_edi_imported_search_view
+msgid "Partner"
+msgstr "Socio"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields.selection,name:l10n_ec_import_edi.selection__l10n_ec_edi_imported__state__pending
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__percent_id
+msgid "Percent"
+msgstr "Por ciento"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__price_unit
+msgid "Price Unit"
+msgstr "Precio unitario"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/wizard/wizard_import_edi.py:0
+#, python-format
+msgid "Processing xml file %s of %s with access key: %s"
+msgstr "Procesando archivo XML %s de %s con clave de acceso: %s"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__product_code
+msgid "Product Code"
+msgstr "Código de producto"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__product_name
+msgid "Product Name"
+msgstr "Nombre del producto"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__quantity
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields.selection,name:l10n_ec_import_edi.selection__l10n_ec_edi_imported_line__type__rent
+msgid "Rent"
+msgstr "Renta"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario Responsable"
+
+#. module: l10n_ec_import_edi
+#: model:documents.tag,name:l10n_ec_import_edi.documents_sri_tag
+msgid "S.R.I."
+msgstr ""
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de entrega de SMS"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__manual_move
+msgid "Set Move Manual?"
+msgstr "Importación Manual?"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.wizard_import_edi_resume_form_view
+msgid "Show Documents"
+msgstr "Mostrar documentos"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/wizard/wizard_import_edi.py:0
+#, python-format
+msgid "Sorry, Cannot connect to SRI"
+msgstr "Lo sentimos, no podemos conectarnos la SRI, intente en unos momentos"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__state
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.l10n_ec_edi_imported_search_view
+msgid "State"
+msgstr "Estado"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,help:l10n_ec_import_edi.field_l10n_ec_edi_imported__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estado basado en actividades\n"
+"Vencido: la fecha de vencimiento ya ha pasado\n"
+"Hoy: la fecha de la actividad es hoy\n"
+"Planificado: actividades futuras."
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__tax_ids
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.wizard_import_edi_resume_form_view
+msgid "The files were processed but errors are found, please review them."
+msgstr "Los archivos se procesaron pero se encontraron errores, revíselos."
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/wizard/wizard_import_edi.py:0
+#, python-format
+msgid ""
+"The xml file with access key: %s is badly formatted or not find a company"
+msgstr ""
+"El archivo xml con clave de acceso: %s está mal formateado o no encuentra "
+"una empresa"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.l10n_ec_edi_imported_form_view
+msgid ""
+"There documents invalid or with information incomplete, please review\n"
+"                        <b>Logs</b>"
+msgstr ""
+"Hay documentos invalidos o con informacion incompleta, por favor revise la "
+"pestaña\n"
+"                        <b>Registros</b>"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.l10n_ec_withhold_form_inherit
+msgid "Totals not equals to imported, please review"
+msgstr "Los Totales no son iguales al Monto Importado, por favor verifique"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,help:l10n_ec_import_edi.field_l10n_ec_edi_imported__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de actividad de excepción registrada."
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes no leídos"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Contador de mensajes no leídos"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_res_company__l10n_ec_check_document_exist
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_res_config_settings__l10n_ec_check_document_exist
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_webkul_website_addons__l10n_ec_check_document_exist
+msgid "Verify document related exist on System?"
+msgstr "Verificar Documento relacionado exista en el Sistema?"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_res_company__l10n_ec_check_data_document_automatic
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_res_config_settings__l10n_ec_check_data_document_automatic
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_webkul_website_addons__l10n_ec_check_data_document_automatic
+msgid "Verify electronic document data?"
+msgstr ""
+"Completar datos electrónicos desde la clave de acceso(vista form de cada "
+"documento)?"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio web"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,help:l10n_ec_import_edi.field_l10n_ec_edi_imported__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicación del sitio web"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,help:l10n_ec_import_edi.field_l10n_ec_edi_imported__l10n_ec_legacy_document
+msgid ""
+"With this option activated, the system will not require an invoice to issue "
+"the Debut or Credit Note"
+msgstr ""
+"Con esta opción activada, el sistema no requerirá factura para emitir la "
+"Nota de Débito o Crédito"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported_line__tax_amount
+msgid "Withhold Amount"
+msgstr "Importe de retención"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__withholding_id
+#: model:ir.model.fields.selection,name:l10n_ec_import_edi.selection__l10n_ec_edi_imported__internal_type__withholding
+msgid "Withholding"
+msgstr "Retención"
+
+#. module: l10n_ec_import_edi
+#: model:ir.model,name:l10n_ec_import_edi.model_wizard_import_edi
+msgid "Wizard to import documents from txt files"
+msgstr "Asistente para importar documentos desde archivos txt"
+
+#. module: l10n_ec_import_edi
+#: model_terms:ir.ui.view,arch_db:l10n_ec_import_edi.res_config_settings_electronic_form_view
+msgid "XML import options"
+msgstr "Opciones de importación XML"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/wizard/wizard_import_edi.py:0
+#, python-format
+msgid "downloading xml file %s of %s with access key: %s"
+msgstr "Descargando archivo XML %s de %s con clave de acceso: %s"
+
+#. module: l10n_ec_import_edi
+#: code:addons/l10n_ec_import_edi/models/account_move.py:0
+#: code:addons/l10n_ec_import_edi/models/withhold.py:0
+#, python-format
+msgid ""
+"File does not belong to the current company, please import file into "
+"company: %s"
+msgstr ""
+"El archivo no pertenece a la empresa actual, importe archivo de la "
+"empresa: %s"
+

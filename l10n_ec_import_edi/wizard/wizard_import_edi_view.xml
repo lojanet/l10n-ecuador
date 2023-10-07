@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="wizard_import_edi_form_view">
+        <field name="name">wizard.import.edi.form</field>
+        <field name="model">wizard.import.edi</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="file_content" required="1" filename="name" />
+                        <field name="background" />
+                    </group>
+                    <group>
+                        <field name="name" invisible="1" />
+                    </group>
+                </group>
+                <footer>
+                    <div class="oe_left">
+                        <button
+                            string="Import File"
+                            name="action_import"
+                            type="object"
+                            class="oe_highlight"
+                        />
+                        <button
+                            string="Close"
+                            special="cancel"
+                            type="object"
+                            class="oe_link"
+                        />
+                    </div>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="wizard_import_edi_resume_form_view" model="ir.ui.view">
+        <field name="name">wizard.import.edi.form</field>
+        <field name="model">wizard.import.edi</field>
+        <field name="priority" eval="50" />
+        <field name="arch" type="xml">
+            <form>
+                <div
+                    class="alert alert-danger"
+                    role="alert"
+                    attrs="{'invisible': [('name', '=', False)]}"
+                >
+                    The files were processed but errors are found, please review them.
+                </div>
+                <group>
+                    <group>
+                        <h3 colspan="2" attrs="{'invisible': [('name', '=', False)]}">
+                            <field name="file_note" readonly="1" filename="name" />
+                        </h3>
+                        <field name="name" invisible="1" />
+                        <field name="document_ids" invisible="1" />
+                    </group>
+                </group>
+                <div
+                    class="alert alert-info"
+                    role="alert"
+                    attrs="{'invisible': [('document_ids', '=', False)]}"
+                >
+                    After downloading the observations report you can click to the button
+                    <b>Show Documents</b>
+                    to open
+                    the invoices created
+                </div>
+                <footer>
+                    <button
+                        string="Show Documents"
+                        attrs="{'invisible': [('document_ids', '=', False)]}"
+                        name="action_open_document"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button string="Close" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_wizard_import_edi_tree_view">
+        <field name="name">Import.edis</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wizard.import.edi</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="wizard_import_edi_form_view" />
+        <field name="target">new</field>
+    </record>
+    <menuitem
+        id="wizard_import_edi_menu"
+        name="Import electronic documents"
+        sequence="55"
+        parent="l10n_ec_account_edi.sri_electronic_documents_menu"
+        action="action_wizard_import_edi_tree_view"
+    />
+</odoo>

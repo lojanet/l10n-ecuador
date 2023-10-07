@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="l10n_ec_edi_imported_form_view">
+        <field name="name">l10n_ec.edi.imported.form</field>
+        <field name="model">l10n_ec.edi.imported</field>
+        <field name="priority" eval="17" />
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button
+                        name="action_download_file"
+                        states="draft"
+                        string="Download XML File"
+                        icon="fa-download"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button
+                        name="action_done"
+                        states="pending"
+                        string="Confirm"
+                        icon="fa-check"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <field name="state" widget="statusbar" />
+                </header>
+                <div
+                    colspan="2"
+                    class="alert alert-danger"
+                    role="alert"
+                    attrs="{'invisible': [('document_logs_ids', '=', [])]}"
+                >
+                    <p>
+                        There documents invalid or with information incomplete, please review
+                        <b>Logs</b>
+                    </p>
+                </div>
+                <sheet>
+                    <h1>
+                        <label for="l10n_latam_document_number" />
+                        <div style="width: 50%">
+                            <field name="l10n_latam_document_number" />
+                        </div>
+                    </h1>
+                    <group>
+                        <group>
+                            <field
+                                name="l10n_latam_document_type_id"
+                                options="{'no_create': True}"
+                                invisible="1"
+                            />
+                            <field name="internal_type" />
+                            <field name="l10n_ec_legacy_document" invisible="1" />
+                            <field name="partner_id" options="{'no_create': True}" />
+                            <field name="manual_move" />
+                            <field
+                                name="move_id"
+                                domain="[('state', '=', 'posted')]"
+                                attrs="{
+                                'invisible': [('internal_type', '=', 'withholding'), ('manual_move', '=', False)],
+                                'readonly': [('manual_move', '=', False)],
+                                'required': [('manual_move', '=', True)],
+                                }"
+                                options="{'no_create': True}"
+                            />
+                            <field
+                                name="l10n_ec_original_invoice_id"
+                                attrs="{'invisible': ['|', ('internal_type', '=', 'invoice'), ('l10n_ec_legacy_document', '=', True)]}"
+                                options="{'no_create': True}"
+                            />
+                            <field
+                                name="l10n_ec_legacy_document_number"
+                                attrs="{'invisible': ['|', ('internal_type', '=', 'invoice'), ('l10n_ec_legacy_document', '=', False)], 'readonly': [('state', '!=', 'draft')]}"
+                            />
+                            <field
+                                name="l10n_ec_legacy_document_date"
+                                attrs="{'invisible': ['|', ('internal_type', '=', 'invoice'), ('l10n_ec_legacy_document', '=', False)], 'readonly': [('state', '!=', 'draft')]}"
+                            />
+                        </group>
+                        <group>
+                            <field name="l10n_ec_xml_access_key" required="1" />
+                            <field name="l10n_ec_electronic_authorization" />
+                            <field name="l10n_ec_authorization_date" />
+                            <field name="invoice_date" />
+                            <field
+                                name="company_id"
+                                options="{'no_create': True}"
+                                groups="base.group_multi_company"
+                            />
+                        </group>
+                    </group>
+                    <notebook colspan="2">
+                        <page string="Lines">
+                            <field name="document_line_ids">
+                                <tree>
+                                    <field
+                                        name="product_id"
+                                        attrs="{'column_invisible': [('parent.internal_type', '=', 'withholding')]}"
+                                        options="{'no_create': True}"
+                                    />
+                                    <field
+                                        name="product_code"
+                                        attrs="{'column_invisible': [('parent.internal_type', '=', 'withholding')]}"
+                                        optional="hide"
+                                    />
+                                    <field
+                                        name="product_name"
+                                        attrs="{'column_invisible': [('parent.internal_type', '=', 'withholding')]}"
+                                    />
+                                    <field
+                                        name="quantity"
+                                        attrs="{'column_invisible': [('parent.internal_type', '=', 'withholding')]}"
+                                    />
+                                    <field
+                                        name="price_unit"
+                                        attrs="{'column_invisible': [('parent.internal_type', '=', 'withholding')]}"
+                                    />
+                                    <field
+                                        name="discount"
+                                        attrs="{'column_invisible': [('parent.internal_type', '=', 'withholding')]}"
+                                    />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Logs">
+                            <field name="document_logs_ids">
+                                <tree>
+                                    <field name="name" />
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="name" />
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="l10n_ec_edi_imported_tree_view">
+        <field name="name">l10n_ec.edi.imported.tree</field>
+        <field name="model">l10n_ec.edi.imported</field>
+        <field name="arch" type="xml">
+            <tree
+                import="0"
+                decoration-warning="state=='cancel'"
+                decoration-info="state=='draft'"
+                decoration-success="state=='done'"
+            >
+                <field name="internal_type" />
+                <field name="l10n_latam_document_number" />
+                <field name="partner_id" />
+                <field name="l10n_ec_xml_access_key" />
+                <field name="move_id" optional="hide" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="l10n_ec_edi_imported_search_view">
+        <field name="name">l10n_ec.edi.imported.search</field>
+        <field name="model">l10n_ec.edi.imported</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="l10n_latam_document_number" />
+                <field name="l10n_ec_xml_access_key" />
+                <field name="partner_id" />
+                <field name="state" />
+                <group name="filter_by" string="Filters">
+                    <filter
+                        name="filter_by_l10n_ec_authorization_date"
+                        string="Authorization Date"
+                        date="l10n_ec_authorization_date"
+                    />
+                    <separator />
+                    <filter
+                        name="filter_by_draft"
+                        string="Documents Pending"
+                        domain="[('state', '=', 'pending')]"
+                    />
+                </group>
+                <group name="group_by" string="Group by">
+                    <filter
+                        name="group_by_partner_id"
+                        string="Partner"
+                        context="{'group_by': 'partner_id'}"
+                    />
+                    <filter
+                        name="group_by_document_type"
+                        string="Document Type"
+                        context="{'group_by': 'internal_type'}"
+                    />
+                    <filter
+                        name="group_by_company_id"
+                        string="Company"
+                        context="{'group_by': 'company_id'}"
+                        groups="base.group_multi_company"
+                    />
+                    <separator />
+                    <filter
+                        name="group_by_state"
+                        string="State"
+                        context="{'group_by': 'state'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_l10n_ec_edi_imported">
+        <field name="name">Electronic Documents Imported</field>
+        <field name="res_model">l10n_ec.edi.imported</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="l10n_ec_edi_imported_search_view" />
+        <field name="view_id" ref="l10n_ec_edi_imported_tree_view" />
+        <field name="context">{'search_default_filter_by_draft': 1}</field>
+    </record>
+    <menuitem
+        id="l10n_ec_edi_imported_menu"
+        name="Electronic Documents Imported"
+        sequence="50"
+        parent="l10n_ec_account_edi.sri_electronic_documents_menu"
+        action="action_l10n_ec_edi_imported"
+    />
+</odoo>

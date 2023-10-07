@@ -1,0 +1,8 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_model_l10n_ec_edi_imported_group_user","access_model_l10n_ec_edi_imported_group_user","model_l10n_ec_edi_imported","base.group_user",1,0,0,0
+"access_model_l10n_ec_edi_imported_line_group_user","access_model_l10n_ec_edi_imported_line_group_user","model_l10n_ec_edi_imported_line","base.group_user",1,0,0,0
+"access_model_l10n_ec_edi_imported_logs_group_user","access_model_l10n_ec_edi_imported_logs_group_user","model_l10n_ec_edi_imported_logs","base.group_user",1,0,0,0
+"access_model_l10n_ec_edi_imported_group_account_invoice","access_model_l10n_ec_edi_imported_group_account_invoice","model_l10n_ec_edi_imported","account.group_account_invoice",1,1,1,1
+"access_model_l10n_ec_edi_imported_line_group_account_invoice","access_model_l10n_ec_edi_imported_line_group_account_invoice","model_l10n_ec_edi_imported_line","account.group_account_invoice",1,1,1,1
+"access_model_l10n_ec_edi_imported_logs_group_account_invoice","access_model_l10n_ec_edi_imported_logs_group_account_invoice","model_l10n_ec_edi_imported_logs","account.group_account_invoice",1,1,1,1
+"l10n_ec_import_edi.access_wizard_import_edi","access_wizard_import_edi","l10n_ec_import_edi.model_wizard_import_edi","base.group_user",1,1,1,0
