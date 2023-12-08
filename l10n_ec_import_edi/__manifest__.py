@@ -5,8 +5,8 @@
     "website": "https://github.com/OCA/l10n-ecuador",
     "license": "LGPL-3",
     "category": "Account",
-    "version": "15.0.1.0.0",
-    "depends": ["account", "l10n_ec_account_edi"],
+    "version": "17.0.1.0.0",
+    "depends": ["account", "l10n_ec_edi_ce"],
     "data": [
         "security/security.xml",
         "security/ir.model.access.csv",

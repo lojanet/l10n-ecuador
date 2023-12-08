@@ -1,12 +1,30 @@
 from datetime import datetime
-from xml.etree.ElementTree import tostring
 
-from lxml import objectify
+import pytz
+from lxml import etree, objectify
+from markupsafe import Markup
 
 from odoo import api, models
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
+from odoo.tools.xml_utils import cleanup_xml_node
 
 EDI_DF = "%d/%m/%Y"
+L10N_EC_VAT_RATES = {
+    "2": 12.0,
+    "3": 14.0,
+    "0": 0.0,
+    "6": 0.0,
+    "7": 0.0,
+    "8": 8.0,
+}
+L10N_EC_VAT_SUBTAXES = {
+    "8": "vat08",
+    "2": "vat12",
+    "3": "vat14",
+    "0": "zero_vat",
+    "6": "not_charged_vat",
+    "7": "exempt_vat",
+}  # NOTE: non-IVA cases such as ICE and IRBPNR not supported
 
 
 class L10nEcXmlParse(models.AbstractModel):
@@ -58,18 +76,16 @@ class L10nEcXmlParse(models.AbstractModel):
         # pero si no tiene ese nodo, toca buscar en el xml un atributo @id='comprobante'
         # asi que en ese caso se debe crear el objectify desde
         # el nodo padre que contenta dicho atributo
-        comprobantes_node = file_xml.xpath("//comprobante")
+        comprobantes_node = file_xml.xpath("//comprobante/*")
         if comprobantes_node:
             for comprobante_node in comprobantes_node:
-                document_info = objectify.fromstring(comprobante_node.text.encode())
+                document_info = objectify.fromstring(etree.tostring(comprobante_node))
                 document_list.append(document_info)
         else:
             # soporte para documentos que no tengan el nodo comprobante(nuestro caso hasta V11)
             comprobantes_node = file_xml.xpath("//@id[.='comprobante']/..")
             for comprobante_node in comprobantes_node:
-                document_info = objectify.fromstring(
-                    tostring(comprobante_node).decode()
-                )
+                document_info = objectify.fromstring(etree.tostring(comprobante_node))
                 document_list.append(document_info)
         return document_list
 
@@ -87,7 +103,7 @@ class L10nEcXmlParse(models.AbstractModel):
         messages = []
         domain = [
             (
-                "l10n_ec_electronic_authorization",
+                "l10n_ec_authorization_number",
                 "=",
                 electronicAthorization,
             ),
@@ -145,8 +161,7 @@ class L10nEcXmlParse(models.AbstractModel):
         invoice_vals = {
             "l10n_latam_document_number": document_number,
             "l10n_latam_document_type_id": latam_document_type.id,
-            "l10n_ec_electronic_authorization": info_tributaria.claveAcceso.text,
-            "l10n_ec_xml_access_key": info_tributaria.claveAcceso.text,
+            "l10n_ec_authorization_number": info_tributaria.claveAcceso.text,
             "partner_id": partner_find.id,
             "company_id": company.id,
             "move_type": invoice_type,
@@ -180,12 +195,19 @@ class L10nEcXmlParse(models.AbstractModel):
         document_type_doc_mod = self.l10n_ec_xml_get_latam_document_type(
             company, codDocModificado
         )
+        print(
+            "Codigo:",
+            codDocModificado,
+            "tipo de documento modificado:",
+            document_type_doc_mod,
+        )
         domain_invoice = self.l10n_ec_xml_get_domain_for_doc_mod(
             credit_note_vals["partner_id"],
             numDocModificado,
             "in_invoice",
             document_type_doc_mod,
         )
+        print("Codigo:", domain_invoice)
         current_invoice = invoice_model.search(domain_invoice, limit=1)
         if current_invoice:
             credit_note_vals["l10n_ec_original_invoice_id"] = current_invoice.id
@@ -267,7 +289,8 @@ class L10nEcXmlParse(models.AbstractModel):
             "country_id": self.env.company.country_id.id,
         }
         if hasattr(partner_node, "nombreComercial"):
-            partner_vals["l10n_ec_business_name"] = partner_node.nombreComercial.text
+            print(partner_node)
+            # partner_vals["l10n_ec_business_name"] = partner_node.nombreComercial.text #TODO
         if hasattr(partner_node, "dirMatriz"):
             partner_vals["street"] = partner_node.dirMatriz.text
         return partner_vals
@@ -297,7 +320,7 @@ class L10nEcXmlParse(models.AbstractModel):
         ctx.pop("default_move_type", False)
         if not product_find:
             product_info_domain = [
-                ("name", "=", partner_id),
+                ("partner_id", "=", partner_id),
             ]
             if product_vals.get("default_code"):
                 product_info_domain.append(
@@ -327,7 +350,7 @@ class L10nEcXmlParse(models.AbstractModel):
                     if not product_supplier_info:
                         SupplierInfo.create(
                             {
-                                "name": partner_id,
+                                "partner_id": partner_id,
                                 "product_code": product_vals.get("default_code") or "",
                                 "product_name": product_vals.get("name"),
                                 "product_tmpl_id": product_find.product_tmpl_id.id,
@@ -374,15 +397,15 @@ class L10nEcXmlParse(models.AbstractModel):
             ("company_id", "=", company.id),
             ("type_tax_use", "=", "purchase"),
             (
-                "tax_group_id.l10n_ec_xml_fe_code",
+                "tax_group_id.l10n_ec_type",
                 "=",
-                tax_code,
-            ),  # filtrar si es IVA, Renta, ICE, IRBPNR
-            (
-                "l10n_ec_xml_fe_code",
-                "=",
-                codigoPorcentaje,
-            ),  # filtrar si es IVA 12, IVA 0, etc
+                L10N_EC_VAT_SUBTAXES[tax_code],
+            ),  # filtrar si es IVA, Renta, ICE, IRBPNR TODO
+            # (
+            #     "l10n_ec_xml_fe_code",
+            #     "=",
+            #     L10N_EC_VAT_RATES[codigoPorcentaje],
+            # ),  # filtrar si es IVA 12, IVA 0, etc  TODO
         ]
         return domain
 
@@ -439,18 +462,24 @@ class L10nEcXmlParse(models.AbstractModel):
             ail_vals["tax_ids"] = [(6, 0, supplier_taxes.ids)]
         return ail_vals
 
-    @api.model
     def _l10n_ec_create_file_authorized(
         self, xml_file, authorization_number, authorization_date, environment
     ):
-        ViewModel = self.env["ir.ui.view"].sudo()
         xml_values = {
-            "xml_file": xml_file,
+            "xml_file": Markup(
+                xml_file[xml_file.find("?>") + 2 :]
+            ),  # remove header to embed sent xml
             "authorization_number": authorization_number,
             "authorization_date": authorization_date.strftime(DTF),
             "environment": "PRODUCCION" if environment == "production" else "PRUEBAS",
         }
-        xml_authorized = ViewModel._render_template(
+        xml_authorized = self.env["ir.qweb"]._render(
             "l10n_ec_import_edi.ec_edi_authorization", xml_values
         )
-        return xml_authorized
+        xml_authorized = cleanup_xml_node(xml_authorized)
+
+        return etree.tostring(xml_authorized, encoding="unicode")
+
+    def l10n_ec_get_authorization_date(self, tree):
+        authorization_date = datetime.strptime((tree[2].text), DTF).astimezone(pytz.utc)
+        return authorization_date.strftime(DTF)

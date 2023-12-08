@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<autorizacion>
+<estado>AUTORIZADO</estado>
+<numeroAutorizacion>0705202301110340161600120010140001689741234567812</numeroAutorizacion>
+<fechaAutorizacion>2023-05-07T22:04:13-05:00</fechaAutorizacion>
+<ambiente>PRODUCCIÓN</ambiente>
+<comprobante><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<factura id="comprobante" version="2.1.0">
+	<infoTributaria>
+		<ambiente>2</ambiente>
+		<tipoEmision>1</tipoEmision>
+		<razonSocial>ING .TORRES TORRES MARIA LUISA</razonSocial>
+		<nombreComercial>SUPERMERCADOS YEROVY</nombreComercial>
+		<ruc>1103401616001</ruc>
+		<claveAcceso>0705202301110340161600120010140001689741234567812</claveAcceso>
+		<codDoc>01</codDoc>
+		<estab>001</estab>
+		<ptoEmi>014</ptoEmi>
+		<secuencial>000168974</secuencial>
+		<dirMatriz>MERCADILLO 152-32 Y 18 DE NOVIEMBRE</dirMatriz>
+		<agenteRetencion>1</agenteRetencion>
+	</infoTributaria>
+<infoFactura>
+	<fechaEmision>07/05/2023</fechaEmision>
+	<dirEstablecimiento>MERCADILLO 152-32 Y 18 DE NOVIEMBRE</dirEstablecimiento>
+	<obligadoContabilidad>SI</obligadoContabilidad>
+	<tipoIdentificacionComprador>05</tipoIdentificacionComprador>
+	<razonSocialComprador>EMPRESA DE PRUEBAS</razonSocialComprador>
+	<identificacionComprador>1190033814001</identificacionComprador>
+	<direccionComprador>DIRECCION DE PRUEBAS</direccionComprador>
+	<totalSinImpuestos>5.79</totalSinImpuestos>
+	<totalDescuento>0</totalDescuento>
+	<totalConImpuestos>
+		<totalImpuesto>
+		<codigo>2</codigo>
+		<codigoPorcentaje>0</codigoPorcentaje>
+		<baseImponible>4.5</baseImponible>
+		<tarifa>0</tarifa>
+		<valor>0</valor>
+		</totalImpuesto>
+		<totalImpuesto>
+		<codigo>2</codigo>
+		<codigoPorcentaje>2</codigoPorcentaje>
+		<baseImponible>1.29</baseImponible>
+			<tarifa>12</tarifa>
+		<valor>0.16</valor>
+		</totalImpuesto>
+	</totalConImpuestos>
+	<propina>0</propina>
+	<importeTotal>5.95</importeTotal>
+	<moneda>DOLAR</moneda>
+	<pagos>
+		<pago>
+		<formaPago>01</formaPago>
+		<total>5.95</total>
+		<plazo>0</plazo>
+		<unidadTiempo>dias</unidadTiempo>
+		</pago>
+	</pagos>
+</infoFactura>
+<detalles>
+	<detalle>
+		<codigoPrincipal>15707</codigoPrincipal>
+		<codigoAuxiliar>7868001027029</codigoAuxiliar>
+		<descripcion>HARINA PARA SANGO ALEMYS 450GR</descripcion>
+		<cantidad>1</cantidad>
+		<precioUnitario>0.8</precioUnitario>
+		<descuento>0</descuento>
+		<precioTotalSinImpuesto>0.8</precioTotalSinImpuesto>
+		<detallesAdicionales>
+			<detAdicional nombre="bultos" valor="0"></detAdicional>
+			<detAdicional nombre="unidades" valor="0"></detAdicional>
+		</detallesAdicionales>
+	<impuestos>
+		<impuesto>
+			<codigo>2</codigo>
+			<codigoPorcentaje>0</codigoPorcentaje>
+			<tarifa>0</tarifa>
+			<baseImponible>0.8</baseImponible>
+			<valor>0</valor>
+		</impuesto>
+	</impuestos>
+	</detalle>
+	<detalle>
+		<codigoPrincipal>14323</codigoPrincipal>
+		<codigoAuxiliar>7862100641377</codigoAuxiliar>
+		<descripcion>AVENA SOL DE ORO 454GR</descripcion>
+		<cantidad>1</cantidad>
+		<precioUnitario>0.75</precioUnitario>
+		<descuento>0</descuento>
+		<precioTotalSinImpuesto>0.75</precioTotalSinImpuesto>
+		<detallesAdicionales>
+			<detAdicional nombre="bultos" valor="0"></detAdicional>
+			<detAdicional nombre="unidades" valor="0"></detAdicional>
+		</detallesAdicionales>
+	<impuestos>
+		<impuesto>
+			<codigo>2</codigo>
+			<codigoPorcentaje>0</codigoPorcentaje>
+			<tarifa>0</tarifa>
+			<baseImponible>0.75</baseImponible>
+			<valor>0</valor>
+		</impuesto>
+	</impuestos>
+	</detalle>
+	<detalle>
+		<codigoPrincipal>000000000383</codigoPrincipal>
+		<codigoAuxiliar>7861057500027</codigoAuxiliar>
+		<descripcion>SAL CRISAL 2K.</descripcion>
+		<cantidad>1</cantidad>
+		<precioUnitario>0.8</precioUnitario>
+		<descuento>0</descuento>
+		<precioTotalSinImpuesto>0.8</precioTotalSinImpuesto>
+		<detallesAdicionales>
+			<detAdicional nombre="bultos" valor="0"></detAdicional>
+			<detAdicional nombre="unidades" valor="0"></detAdicional>
+		</detallesAdicionales>
+	<impuestos>
+		<impuesto>
+			<codigo>2</codigo>
+			<codigoPorcentaje>0</codigoPorcentaje>
+			<tarifa>0</tarifa>
+			<baseImponible>0.8</baseImponible>
+			<valor>0</valor>
+		</impuesto>
+	</impuestos>
+	</detalle>
+	<detalle>
+		<codigoPrincipal>000000003389</codigoPrincipal>
+		<codigoAuxiliar>0104</codigoAuxiliar>
+		<descripcion>TALLARIN AMANCAY 1 KG</descripcion>
+		<cantidad>1</cantidad>
+		<precioUnitario>1.3</precioUnitario>
+		<descuento>0</descuento>
+		<precioTotalSinImpuesto>1.3</precioTotalSinImpuesto>
+		<detallesAdicionales>
+			<detAdicional nombre="bultos" valor="0"></detAdicional>
+			<detAdicional nombre="unidades" valor="0"></detAdicional>
+		</detallesAdicionales>
+	<impuestos>
+		<impuesto>
+			<codigo>2</codigo>
+			<codigoPorcentaje>0</codigoPorcentaje>
+			<tarifa>0</tarifa>
+			<baseImponible>1.3</baseImponible>
+			<valor>0</valor>
+		</impuesto>
+	</impuestos>
+	</detalle>
+	<detalle>
+		<codigoPrincipal>14357</codigoPrincipal>
+		<codigoAuxiliar>7861124890020</codigoAuxiliar>
+		<descripcion>LECHE ECOLAC UHT 900ML</descripcion>
+		<cantidad>1</cantidad>
+		<precioUnitario>0.85</precioUnitario>
+		<descuento>0</descuento>
+		<precioTotalSinImpuesto>0.85</precioTotalSinImpuesto>
+		<detallesAdicionales>
+			<detAdicional nombre="bultos" valor="0"></detAdicional>
+			<detAdicional nombre="unidades" valor="0"></detAdicional>
+		</detallesAdicionales>
+	<impuestos>
+		<impuesto>
+			<codigo>2</codigo>
+			<codigoPorcentaje>0</codigoPorcentaje>
+			<tarifa>0</tarifa>
+			<baseImponible>0.85</baseImponible>
+			<valor>0</valor>
+		</impuesto>
+	</impuestos>
+	</detalle>
+	<detalle>
+		<codigoPrincipal>000000001326</codigoPrincipal>
+		<codigoAuxiliar>7861064801025</codigoAuxiliar>
+		<descripcion>*SERVILLETA PRIMAVERA BLANCA</descripcion>
+		<cantidad>1</cantidad>
+		<precioUnitario>0.401786</precioUnitario>
+		<descuento>0</descuento>
+		<precioTotalSinImpuesto>0.4</precioTotalSinImpuesto>
+		<detallesAdicionales>
+			<detAdicional nombre="bultos" valor="0"></detAdicional>
+			<detAdicional nombre="unidades" valor="0"></detAdicional>
+		</detallesAdicionales>
+	<impuestos>
+		<impuesto>
+			<codigo>2</codigo>
+			<codigoPorcentaje>2</codigoPorcentaje>
+			<tarifa>12</tarifa>
+			<baseImponible>0.4</baseImponible>
+			<valor>0.05</valor>
+		</impuesto>
+	</impuestos>
+	</detalle>
+	<detalle>
+		<codigoPrincipal>000000001332</codigoPrincipal>
+		<codigoAuxiliar>7702010111723</codigoAuxiliar>
+		<descripcion>*COLGATE 60ML TRIPLE ACCION</descripcion>
+		<cantidad>1</cantidad>
+		<precioUnitario>0.892857</precioUnitario>
+		<descuento>0</descuento>
+		<precioTotalSinImpuesto>0.89</precioTotalSinImpuesto>
+		<detallesAdicionales>
+			<detAdicional nombre="bultos" valor="0"></detAdicional>
+			<detAdicional nombre="unidades" valor="0"></detAdicional>
+			<detAdicional nombre="noteunidad" valor="UN"></detAdicional>
+		</detallesAdicionales>
+	<impuestos>
+		<impuesto>
+			<codigo>2</codigo>
+			<codigoPorcentaje>2</codigoPorcentaje>
+			<tarifa>12</tarifa>
+			<baseImponible>0.89</baseImponible>
+			<valor>0.11</valor>
+		</impuesto>
+	</impuestos>
+	</detalle>
+</detalles>
+<infoAdicional>
+	<campoAdicional nombre="pIva">12</campoAdicional>
+	<campoAdicional nombre="Direccion">DIRECCION DE PRUEBAS</campoAdicional>
+	<campoAdicional nombre="Telefono">2555555</campoAdicional>
+	<campoAdicional nombre="Email">pruebas@hotmail.com</campoAdicional>
+	<campoAdicional nombre="Vencimiento">07/05/2023</campoAdicional>
+	<campoAdicional nombre="Vendedor">ALEJANDRO</campoAdicional>
+	<campoAdicional nombre="Comercio">EMPRESA DE PRUEBAS</campoAdicional>
+	<campoAdicional nombre="Usuario">XAVIER VILLAVICENCIO</campoAdicional>
+	<campoAdicional nombre="FormaPago">Contado</campoAdicional>
+</infoAdicional>
+</factura>]]></comprobante>
+<mensajes/>
+</autorizacion>

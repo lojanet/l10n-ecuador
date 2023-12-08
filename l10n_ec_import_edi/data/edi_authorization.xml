@@ -5,7 +5,7 @@
             <estado>AUTORIZADO</estado>
             <numeroAutorizacion t-out="authorization_number" />
             <fechaAutorizacion t-out="authorization_date" />
-            <ambiente t-out='environment' />
+            <ambiente t-out="environment" />
             <comprobante t-out="xml_file" />
         </RespuestaAutorizacion>
     </template>

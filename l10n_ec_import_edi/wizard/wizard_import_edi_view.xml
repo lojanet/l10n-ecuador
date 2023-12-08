@@ -11,7 +11,7 @@
                         <field name="background" />
                     </group>
                     <group>
-                        <field name="name" invisible="1" />
+                        <field name="name" column_invisible="True" />
                     </group>
                 </group>
                 <footer>
@@ -39,27 +39,19 @@
         <field name="priority" eval="50" />
         <field name="arch" type="xml">
             <form>
-                <div
-                    class="alert alert-danger"
-                    role="alert"
-                    attrs="{'invisible': [('name', '=', False)]}"
-                >
+                <div class="alert alert-danger" role="alert" invisible="not name">
                     The files were processed but errors are found, please review them.
                 </div>
                 <group>
                     <group>
-                        <h3 colspan="2" attrs="{'invisible': [('name', '=', False)]}">
+                        <h3 colspan="2" invisible="not name">
                             <field name="file_note" readonly="1" filename="name" />
                         </h3>
-                        <field name="name" invisible="1" />
-                        <field name="document_ids" invisible="1" />
+                        <field name="name" column_invisible="True" />
+                        <field name="document_ids" column_invisible="True" />
                     </group>
                 </group>
-                <div
-                    class="alert alert-info"
-                    role="alert"
-                    attrs="{'invisible': [('document_ids', '=', False)]}"
-                >
+                <div class="alert alert-info" role="alert" invisible="not document_ids">
                     After downloading the observations report you can click to the button
                     <b>Show Documents</b>
                     to open
@@ -68,7 +60,7 @@
                 <footer>
                     <button
                         string="Show Documents"
-                        attrs="{'invisible': [('document_ids', '=', False)]}"
+                        invisible="not document_ids"
                         name="action_open_document"
                         type="object"
                         class="oe_highlight"
@@ -90,7 +82,7 @@
         id="wizard_import_edi_menu"
         name="Import electronic documents"
         sequence="55"
-        parent="l10n_ec_account_edi.sri_electronic_documents_menu"
+        parent="l10n_ec.sri_menu"
         action="action_wizard_import_edi_tree_view"
     />
 </odoo>

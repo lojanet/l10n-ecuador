@@ -5,106 +5,58 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="account.res_config_settings_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//div[@id='l10n_ec_section']" position="after">
-                <h2 name="l10n_ec_import">XML import options</h2>
-                <div class="row mt16 o_settings_container">
-                    <div
-                        id="option_l10n_ec_import_create_product"
-                        class="col-12 col-md-6 o_setting_box"
+            <xpath expr="//setting[@id='l10n_ec_edi_withholding']" position="after">
+                <block id="l10n_ec_edi_import" title="XML Document Import">
+                    <setting
+                        id="l10n_ec_create_product"
+                        help="Mark option if you want create products from XML automatically when product is not find on system"
                     >
-                        <div class="o_setting_left_pane">
-                            <field name="l10n_ec_import_create_product" />
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label for="l10n_ec_import_create_product" />
-                            <div class="text-muted">
-                                Mark option if you want create products from XML automatically when product is not find
-                                on system
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        id="option_l10n_ec_import_create_document_automatic"
-                        class="col-12 col-md-6 o_setting_box"
+                        <field name="l10n_ec_import_create_product" />
+                    </setting>
+                    <setting
+                        id="l10n_ec_create_document_automatic"
+                        help="Mark option if you want create documents from XML automatically without waiting to user review document(Automatic Process)"
                     >
-                        <div class="o_setting_left_pane">
-                            <field name="l10n_ec_import_create_document_automatic" />
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label for="l10n_ec_import_create_document_automatic" />
-                            <div class="text-muted">
-                                Mark option if you want create documents from XML automatically without waiting to user
-                                review document(Automatic Process)
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        id="option_l10n_ec_check_data_document_automatic"
-                        class="col-12 col-md-6 o_setting_box"
+                        <field name="l10n_ec_import_create_document_automatic" />
+                    </setting>
+                    <setting
+                        id="l10n_ec_check_data_document"
+                        help="Mark the option if you want to verify the data of the electronic document."
                     >
-                        <div class="o_setting_left_pane">
-                            <field name="l10n_ec_check_data_document_automatic" />
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label for="l10n_ec_check_data_document_automatic" />
-                            <div class="text-muted">
-                                Mark the option if you want to verify the data of the electronic document.
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        id="option_l10n_ec_check_document_exist"
-                        class="col-12 col-md-6 o_setting_box"
+                        <field name="l10n_ec_check_data_document_automatic" />
+                    </setting>
+                    <setting
+                        id="l10n_ec_check_document_exist"
+                        help="Mark the option if you want to verify the document related(on withholding) exists on system."
                     >
-                        <div class="o_setting_left_pane">
-                            <field name="l10n_ec_check_document_exist" />
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label for="l10n_ec_check_document_exist" />
-                            <div class="text-muted">
-                                Mark the option if you want to verify the document related(on withholding) exists on
-                                system.
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        id="option_l10n_ec_import_alias_prefix"
-                        class="col-12 col-md-6 o_setting_box"
+                        <field name="l10n_ec_check_document_exist" />
+                    </setting>
+                    <setting
+                        id="l10n_ec_import_alias_id"
+                        string="Email for read XML"
+                        help="Incoming mail from this address evaluate attachment XML files to create documents(invoice, withhold)"
                     >
-                        <div class="o_setting_left_pane">
-
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <div class="mt16">
-                                <span class="o_form_label">Email for read XML</span>
-                                <br />
-                                <field
-                                    name="l10n_ec_import_alias_id"
-                                    domain="[('alias_model_id.model', '=', 'l10n_ec.edi.imported')]"
-                                    context="{'alias_model_name': 'l10n_ec.edi.imported', 'alias_parent_model_name': 'res.company', 'default_alias_user_id': False}"
-                                    options="{'no_create_edit': True}"
-                                    class="oe_inline"
-                                />
-                                <label
-                                    for="alias_domain"
-                                    string="@"
-                                    attrs="{'invisible': [('l10n_ec_import_alias_id', '!=', False)]}"
-                                />
-                                <field
-                                    name="alias_domain"
-                                    readonly="1"
-                                    force_save="1"
-                                    attrs="{'invisible': [('l10n_ec_import_alias_id', '!=', False)]}"
-                                    class="oe_inline"
-                                />
-                            </div>
-                            <div class="text-muted">
-                                Incoming mail from this address evaluate attachment XML files to create
-                                documents(invoice, withhold)
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        <field
+                            name="l10n_ec_import_alias_id"
+                            domain="[('alias_model_id.model', '=', 'l10n_ec.edi.imported')]"
+                            context="{'alias_model_name': 'l10n_ec.edi.imported', 'alias_parent_model_name': 'res.company', 'default_alias_user_id': False}"
+                            options="{'no_create_edit': True}"
+                            class="oe_inline"
+                        />
+                        <label
+                            for="alias_domain_id"
+                            string="@"
+                            invisible="l10n_ec_import_alias_id"
+                        />
+                        <field
+                            name="alias_domain_id"
+                            readonly="1"
+                            force_save="1"
+                            class="oe_inline"
+                            invisible="l10n_ec_import_alias_id"
+                        />
+                    </setting>
+                </block>
             </xpath>
         </field>
     </record>

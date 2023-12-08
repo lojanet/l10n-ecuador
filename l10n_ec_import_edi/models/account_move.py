@@ -11,38 +11,38 @@ class AccountMove(models.Model):
     _inherit = ["l10n_ec.xml.parser", "account.move"]
     _name = "account.move"
 
-    @api.onchange("l10n_ec_electronic_authorization")
-    def _onchange_l10n_ec_electronic_authorization(self):
+    @api.onchange("l10n_ec_authorization_number")
+    def _onchange_l10n_ec_authorization_number(self):
         warning = {}
         messages = []
         if (
-            self.l10n_ec_electronic_authorization
-            and len(self.l10n_ec_electronic_authorization) == 49
+            self.l10n_ec_authorization_number
+            and len(self.l10n_ec_authorization_number) == 49
             and self.is_purchase_document()
             and self.company_id.l10n_ec_check_data_document_automatic
         ):
             messages, current_invoice = self.l10n_ec_check_edi_exist(
-                self.l10n_ec_electronic_authorization
+                self.l10n_ec_authorization_number
             )
             if current_invoice:
-                self.l10n_ec_electronic_authorization = ""
+                self.l10n_ec_authorization_number = ""
             else:
-                xml_data = self.env["account.edi.format"]
+                xml_data = self.env["l10n_ec.utils"]
                 xml_authorized = ""
-                client_ws = xml_data._l10n_ec_get_edi_ws_client(
+                client_ws = xml_data._l10n_ec_get_edi_wsclient(
                     "production", "authorization"
                 )
                 if not client_ws:
                     _logger.error(
                         "Cannot connect to SRI to download file with access key %s",
-                        self.l10n_ec_electronic_authorization,
+                        self.l10n_ec_authorization_number,
                     )
                     return
                 try:
                     xml_authorized = self.env[
                         "l10n_ec.edi.imported"
                     ]._l10n_ec_download_file(
-                        client_ws, self.l10n_ec_electronic_authorization
+                        client_ws, self.l10n_ec_authorization_number
                     )
                 except Exception as ex:
                     _logger.error(tools.ustr(ex))
@@ -87,6 +87,7 @@ class AccountMove(models.Model):
             messages, new_document = self.with_context(
                 allowed_company_ids=company.ids
             )._l10n_ec_create_invoice_from_xml(document_info)
+            print("factura creada", messages, new_document)
         elif document_info.tag == "notaCredito":
             if self.move_type != "in_refund":
                 messages.append(
@@ -142,7 +143,7 @@ class AccountMove(models.Model):
         )
         messages, current_invoice = self.l10n_ec_check_edi_exist(vals_invoice)
         if current_invoice:
-            self.l10n_ec_electronic_authorization = ""
+            self.l10n_ec_authorization_number = ""
             return messages, current_invoice
         if is_onchange_invoice:
             self.invoice_line_ids = [(5, 0)]
@@ -174,7 +175,6 @@ class AccountMove(models.Model):
                 detail_xml, product, supplier_taxes
             )
             invoice_line = InvoiceLineModel.new(vals_line)
-            invoice_line._onchange_product_id()
             invoice_line.price_unit = vals_line["price_unit"]
             invoice_line.quantity = vals_line["quantity"]
             invoice_line.currency_id = self.currency_id
@@ -189,13 +189,16 @@ class AccountMove(models.Model):
             if is_onchange_invoice:
                 self.invoice_line_ids |= invoice_line
             else:
+                print("NO is_onchange_invoice")
                 vals_line_create = invoice_line._convert_to_write(
                     {name: invoice_line[name] for name in invoice_line._cache}
                 )
                 invoice_line_vals.append((0, 0, vals_line_create))
+
         if is_onchange_invoice:
-            self.invoice_line_ids._onchange_price_subtotal()
-            self._recompute_dynamic_lines(recompute_all_taxes=True)
+            #            self.invoice_line_ids._onchange_price_subtotal()
+            #            self._recompute_dynamic_lines(recompute_all_taxes=True)
+            print("OK")
         else:
             amount_total_imported = float(document_info.infoFactura.importeTotal.text)
             self.write({"invoice_line_ids": invoice_line_vals})
@@ -215,6 +218,7 @@ class AccountMove(models.Model):
                     f"{tools.float_repr(amount_total_imported, decimal_places)}. "
                     f"Documento: {vals_invoice['l10n_latam_document_number']}"
                 )
+        print("antes del return", messages)
         return messages, self
 
     @api.model
@@ -245,7 +249,7 @@ class AccountMove(models.Model):
         )
         messages, current_invoice = self.l10n_ec_check_edi_exist(vals_invoice)
         if current_invoice:
-            self.l10n_ec_electronic_authorization = ""
+            self.l10n_ec_authorization_number = ""
             return messages, current_invoice
         if is_onchange_invoice:
             self.invoice_line_ids = [(5, 0)]
@@ -277,7 +281,7 @@ class AccountMove(models.Model):
                 detail_xml, product, supplier_taxes
             )
             invoice_line = InvoiceLineModel.new(vals_line)
-            invoice_line._onchange_product_id()
+            #            invoice_line._onchange_product_id()
             invoice_line.price_unit = vals_line["price_unit"]
             invoice_line.quantity = vals_line["quantity"]
             if vals_line.get("discount"):
@@ -296,8 +300,9 @@ class AccountMove(models.Model):
                 )
                 invoice_line_vals.append((0, 0, vals_line_create))
         if is_onchange_invoice:
-            self.invoice_line_ids._onchange_price_subtotal()
-            self._recompute_dynamic_lines(recompute_all_taxes=True)
+            #            self.invoice_line_ids._onchange_price_subtotal()
+            #            self._recompute_dynamic_lines(recompute_all_taxes=True)
+            print("OK")
         else:
             amount_total_imported = float(
                 document_info.infoNotaCredito.valorModificacion.text
@@ -349,7 +354,7 @@ class AccountMove(models.Model):
         )
         messages, current_invoice = self.l10n_ec_check_edi_exist(vals_invoice)
         if current_invoice:
-            self.l10n_ec_electronic_authorization = ""
+            self.l10n_ec_authorization_number = ""
             return messages, current_invoice
         if is_onchange_invoice:
             self.invoice_line_ids = [(5, 0)]
@@ -382,7 +387,7 @@ class AccountMove(models.Model):
                 detail_xml, product, supplier_taxes
             )
             invoice_line = InvoiceLineModel.new(vals_line)
-            invoice_line._onchange_product_id()
+            #            invoice_line._onchange_product_id()
             invoice_line.price_unit = vals_line["price_unit"]
             invoice_line.quantity = vals_line["quantity"]
             if vals_line.get("discount"):
@@ -401,8 +406,9 @@ class AccountMove(models.Model):
                 )
                 invoice_line_vals.append((0, 0, vals_line_create))
         if is_onchange_invoice:
-            self.invoice_line_ids._onchange_price_subtotal()
-            self._recompute_dynamic_lines(recompute_all_taxes=True)
+            #            self.invoice_line_ids._onchange_price_subtotal()
+            #            self._recompute_dynamic_lines(recompute_all_taxes=True)
+            print("OK")
         else:
             amount_total_imported = float(document_info.infoNotaDebito.valorTotal.text)
             self.write({"invoice_line_ids": invoice_line_vals})

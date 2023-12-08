@@ -9,16 +9,16 @@
                 <header>
                     <button
                         name="action_download_file"
-                        states="draft"
                         string="Download XML File"
+                        invisible="state != 'draft'"
                         icon="fa-download"
                         type="object"
                         class="oe_highlight"
                     />
                     <button
                         name="action_done"
-                        states="pending"
                         string="Confirm"
+                        invisible="state != 'pending'"
                         icon="fa-check"
                         type="object"
                         class="oe_highlight"
@@ -29,7 +29,7 @@
                     colspan="2"
                     class="alert alert-danger"
                     role="alert"
-                    attrs="{'invisible': [('document_logs_ids', '=', [])]}"
+                    invisible="not document_logs_ids"
                 >
                     <p>
                         There documents invalid or with information incomplete, please review
@@ -51,36 +51,38 @@
                                 invisible="1"
                             />
                             <field name="internal_type" />
-                            <field name="l10n_ec_legacy_document" invisible="1" />
+                            <field
+                                name="l10n_ec_legacy_document"
+                                column_invisible="1"
+                            />
                             <field name="partner_id" options="{'no_create': True}" />
                             <field name="manual_move" />
                             <field
                                 name="move_id"
                                 domain="[('state', '=', 'posted')]"
-                                attrs="{
-                                'invisible': [('internal_type', '=', 'withholding'), ('manual_move', '=', False)],
-                                'readonly': [('manual_move', '=', False)],
-                                'required': [('manual_move', '=', True)],
-                                }"
+                                invisible="internal_type == 'withholding' and not manual_move"
+                                readonly="not manual_move"
+                                required="manual_move"
                                 options="{'no_create': True}"
                             />
                             <field
                                 name="l10n_ec_original_invoice_id"
-                                attrs="{'invisible': ['|', ('internal_type', '=', 'invoice'), ('l10n_ec_legacy_document', '=', True)]}"
+                                invisible="internal_type == 'invoice' or l10n_ec_legacy_document "
                                 options="{'no_create': True}"
                             />
                             <field
                                 name="l10n_ec_legacy_document_number"
-                                attrs="{'invisible': ['|', ('internal_type', '=', 'invoice'), ('l10n_ec_legacy_document', '=', False)], 'readonly': [('state', '!=', 'draft')]}"
+                                invisible="internal_type == 'invoice' or not l10n_ec_legacy_document"
+                                readonly="state != 'draft'"
                             />
                             <field
                                 name="l10n_ec_legacy_document_date"
-                                attrs="{'invisible': ['|', ('internal_type', '=', 'invoice'), ('l10n_ec_legacy_document', '=', False)], 'readonly': [('state', '!=', 'draft')]}"
+                                invisible="internal_type == 'invoice' or not l10n_ec_legacy_document"
+                                readonly="state != 'draft'"
                             />
                         </group>
                         <group>
                             <field name="l10n_ec_xml_access_key" required="1" />
-                            <field name="l10n_ec_electronic_authorization" />
                             <field name="l10n_ec_authorization_date" />
                             <field name="invoice_date" />
                             <field
@@ -96,29 +98,29 @@
                                 <tree>
                                     <field
                                         name="product_id"
-                                        attrs="{'column_invisible': [('parent.internal_type', '=', 'withholding')]}"
+                                        column_invisible="parent.internal_type == 'withholding'"
                                         options="{'no_create': True}"
                                     />
                                     <field
                                         name="product_code"
-                                        attrs="{'column_invisible': [('parent.internal_type', '=', 'withholding')]}"
+                                        column_invisible="parent.internal_type == 'withholding'"
                                         optional="hide"
                                     />
                                     <field
                                         name="product_name"
-                                        attrs="{'column_invisible': [('parent.internal_type', '=', 'withholding')]}"
+                                        column_invisible="parent.internal_type == 'withholding'"
                                     />
                                     <field
                                         name="quantity"
-                                        attrs="{'column_invisible': [('parent.internal_type', '=', 'withholding')]}"
+                                        column_invisible="parent.internal_type == 'withholding'"
                                     />
                                     <field
                                         name="price_unit"
-                                        attrs="{'column_invisible': [('parent.internal_type', '=', 'withholding')]}"
+                                        column_invisible="parent.internal_type == 'withholding'"
                                     />
                                     <field
                                         name="discount"
-                                        attrs="{'column_invisible': [('parent.internal_type', '=', 'withholding')]}"
+                                        column_invisible="parent.internal_type == 'withholding'"
                                     />
                                 </tree>
                             </field>
@@ -226,7 +228,7 @@
         id="l10n_ec_edi_imported_menu"
         name="Electronic Documents Imported"
         sequence="50"
-        parent="l10n_ec_account_edi.sri_electronic_documents_menu"
+        parent="l10n_ec.sri_menu"
         action="action_l10n_ec_edi_imported"
     />
 </odoo>

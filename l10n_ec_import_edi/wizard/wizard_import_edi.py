@@ -99,7 +99,7 @@ class WizardImportElectronicDocument(models.TransientModel):
         return file_lines, errors
 
     def action_import(self):
-        xml_data = self.env["account.edi.format"]
+        xml_data = self.env["l10n_ec.utils"]
         document_import_model = self.env["l10n_ec.edi.imported"]
         documents_imported = document_import_model.browse()
         file_lines, errors = self._get_file_content()
@@ -107,7 +107,7 @@ class WizardImportElectronicDocument(models.TransientModel):
         message_list.extend([dict(message=msj) for msj in errors])
         client_ws = None
         if not self.background:
-            client_ws = xml_data._l10n_ec_get_edi_ws_client(
+            client_ws = xml_data._l10n_ec_get_edi_wsclient(
                 "production", "authorization"
             )
             if not client_ws:
@@ -193,7 +193,7 @@ class WizardImportElectronicDocument(models.TransientModel):
                 if doc_import_model.search_count(
                     [("l10n_ec_xml_access_key", "=", access_key)]
                 ) or AccountMove.search_count(
-                    [("l10n_ec_electronic_authorization", "=", access_key)]
+                    [("l10n_ec_authorization_number", "=", access_key)]
                 ):
                     message_list.append(
                         {
@@ -204,7 +204,6 @@ class WizardImportElectronicDocument(models.TransientModel):
                     )
                     continue
                 values = {
-                    "l10n_ec_electronic_authorization": access_key,
                     "l10n_ec_xml_access_key": access_key,
                 }
                 if not self.background:
@@ -250,19 +249,17 @@ class WizardImportElectronicDocument(models.TransientModel):
         return values_to_create, message_list
 
     def action_open_document(self):
-        action_vals = {
-            "name": _("Documents Imported"),
-            "res_model": "l10n_ec.edi.imported",
-            "views": [[False, "tree"], [False, "form"]],
-            "type": "ir.actions.act_window",
-            "context": self._context,
-        }
+        self.ensure_one()
         if self.document_ids:
-            document_ids = safe_eval(self.document_ids)
-            domain = [("id", "in", document_ids)]
-            action_vals["domain"] = domain
-            if len(document_ids) == 1:
-                action_vals.update({"res_id": document_ids[0], "view_mode": "form"})
-            else:
-                action_vals["view_mode"] = "tree,form"
-        return action_vals
+            documents = safe_eval(self.document_ids)
+        return {
+            "type": "ir.actions.act_window",
+            "res_model": "l10n_ec.edi.imported",
+            "name": _("Documents Imported"),
+            "views": [[False, "form"]]
+            if len(documents) == 1
+            else [[False, "tree"], [False, "form"]],
+            "context": self._context,
+            "domain": [("id", "in", documents)],
+            "res_id": documents[0] if len(documents) == 1 else False,
+        }

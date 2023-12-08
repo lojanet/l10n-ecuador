@@ -39,14 +39,6 @@ class L10nEcElectronicDocumentImported(models.Model):
         "Access Key",
         size=49,
         copy=False,
-        readonly=True,
-        states={"draft": [("readonly", False)]},
-    )
-    l10n_ec_electronic_authorization = fields.Char(
-        "Electronic Authorization",
-        size=49,
-        copy=False,
-        readonly=True,
     )
     l10n_ec_authorization_date = fields.Datetime(
         "Date Authorization", copy=False, readonly=True
@@ -102,8 +94,6 @@ class L10nEcElectronicDocumentImported(models.Model):
 
     manual_move = fields.Boolean(
         string="Set Move Manual?",
-        readonly=True,
-        states={"draft": [("readonly", False)], "pending": [("readonly", False)]},
     )
 
     @api.onchange("l10n_ec_xml_access_key")
@@ -167,9 +157,9 @@ class L10nEcElectronicDocumentImported(models.Model):
 
     def _action_download_file(self, client_ws=None):
         # webservice para consultar documentos autorizados en ambiente produccion
-        xml_data = self.env["account.edi.format"]
+        xml_data = self.env["l10n_ec.utils"]
         if client_ws is None:
-            client_ws = xml_data._l10n_ec_get_edi_ws_client(
+            client_ws = xml_data._l10n_ec_get_edi_wsclient(
                 "production", "authorization"
             )
         for document in self:
@@ -237,7 +227,7 @@ class L10nEcElectronicDocumentImported(models.Model):
                 )
             if vals_to_write:
                 document.write(vals_to_write)
-        if withholdings:
+        if withholdings:  # TODO
             domain = [("id", "in", withholdings.ids)]
             res_model = withholdings._name
         else:
@@ -251,7 +241,7 @@ class L10nEcElectronicDocumentImported(models.Model):
             "type": "ir.actions.act_window",
             "context": self._context,
         }
-        if withholdings:
+        if withholdings:  # TODO
             if len(withholdings) == 1:
                 action_vals.update({"res_id": withholdings[0].id, "view_mode": "form"})
             else:
@@ -392,8 +382,6 @@ class L10nEcElectronicDocumentImported(models.Model):
                 autorizacion_list = response.autorizaciones.autorizacion
         for doc in autorizacion_list:
             if doc.estado == "AUTORIZADO" and doc.comprobante:
-                #                print("Comprobante Sin Autorizar directo:",doc.comprobante)
-                #                tree = ET.fromstring(doc.comprobante)
                 authorization_date = (
                     doc.fechaAutorizacion
                     if hasattr(doc, "fechaAutorizacion")
@@ -406,16 +394,16 @@ class L10nEcElectronicDocumentImported(models.Model):
                     )
                 # crear el xml adjunto para que se procese
                 xml_authorized = self._l10n_ec_create_file_authorized(
-                    doc.comprobante,  # tree,
+                    doc.comprobante,
                     l10n_ec_xml_access_key,
                     authorization_date,
                     "production",
                 )
-        #                print("Documento Autorizado: ->", xml_authorized)
         return xml_authorized
 
     def _l10n_ec_create_record_from_xml(self, tree):
         document_list = self._l10n_ec_get_document_info_from_xml(tree)
+        print(self.l10n_ec_get_authorization_date(tree))
         message_list = []
         for document_info in document_list:
             company = self._l10n_ec_get_company_for_xml(document_info)
@@ -432,7 +420,7 @@ class L10nEcElectronicDocumentImported(models.Model):
                 messages = self.with_context(
                     allowed_company_ids=company.ids, internal_type="debit_note"
                 )._l10n_ec_create_as_debit_note(document_info)
-            elif document_info.tag == "comprobanteRetencion":
+            elif document_info.tag == "comprobanteRetencion":  # TODO
                 messages = self.with_context(
                     allowed_company_ids=company.ids
                 )._l10n_ec_create_as_withhold(document_info)
@@ -643,7 +631,7 @@ class L10nEcElectronicDocumentImported(models.Model):
             "debit_note": {"l10n_latam_document_number": "document_number"},
             "withholding": {
                 "number": "document_number",
-                "electronic_authorization": "l10n_ec_electronic_authorization",
+                "electronic_authorization": "l10n_ec_authorization_number",
                 "issue_date": "invoice_date",
             },
         }

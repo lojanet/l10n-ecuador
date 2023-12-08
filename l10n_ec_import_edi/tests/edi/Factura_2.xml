@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<autorizacion>
+<estado>AUTORIZADO</estado>
+<numeroAutorizacion>0305202301119175142200120051000000570191234567819</numeroAutorizacion>
+<fechaAutorizacion>2023-05-03T20:28:46-05:00</fechaAutorizacion>
+<ambiente>PRODUCCIÓN</ambiente>
+<comprobante><![CDATA[<?xml version="1.0" encoding="UTF-8"?><factura id="comprobante" version="2.1.0">
+	<infoTributaria>
+		<ambiente>2</ambiente>
+		<tipoEmision>1</tipoEmision>
+		<razonSocial>FARMACIAS CUXIBAMBA FARMACUX CIA. LTDA.</razonSocial>
+		<nombreComercial>FARMACIAS CUXIBAMBA FARMACUX CIA. LTDA.</nombreComercial>
+		<ruc>1191751422001</ruc>
+		<claveAcceso>0305202301119175142200120051000000570191234567819</claveAcceso>
+		<codDoc>01</codDoc>
+		<estab>005</estab>
+		<ptoEmi>100</ptoEmi>
+		<secuencial>000057019</secuencial>
+		<dirMatriz>MERCADILLO  211-07 Y SUCRE ESQ.</dirMatriz>
+	</infoTributaria>
+<infoFactura>
+	<fechaEmision>03/05/2023</fechaEmision>
+	<dirEstablecimiento>MERCADILLO  211-07 Y SUCRE ESQ.</dirEstablecimiento>
+	<contribuyenteEspecial>00236</contribuyenteEspecial>
+	<obligadoContabilidad>SI</obligadoContabilidad>
+	<tipoIdentificacionComprador>05</tipoIdentificacionComprador>
+	<razonSocialComprador>EMPRESA DE PRUEBAS</razonSocialComprador>
+	<identificacionComprador>1190033814001</identificacionComprador>
+	<direccionComprador>DIRECCION DE PRUEBAS</direccionComprador>
+	<totalSinImpuestos>32.98</totalSinImpuestos>
+	<totalDescuento>29.75</totalDescuento>
+	<totalConImpuestos>
+		<totalImpuesto>
+		<codigo>2</codigo>
+		<codigoPorcentaje>0</codigoPorcentaje>
+		<baseImponible>32.98</baseImponible>
+		<tarifa>0</tarifa>
+		<valor>0</valor>
+		</totalImpuesto>
+	</totalConImpuestos>
+	<propina>0</propina>
+	<importeTotal>32.98</importeTotal>
+	<moneda>DOLAR</moneda>
+	<pagos>
+		<pago>
+		<formaPago>01</formaPago>
+		<total>32.98</total>
+		<plazo>0</plazo>
+		<unidadTiempo>dias</unidadTiempo>
+		</pago>
+	</pagos>
+</infoFactura>
+<detalles>
+	<detalle>
+		<codigoPrincipal>7705959881160</codigoPrincipal>
+		<descripcion>PREGABALINA CAP 150 MG GENFAR</descripcion>
+		<cantidad>30</cantidad>
+		<precioUnitario>0.963</precioUnitario>
+		<descuento>0</descuento>
+		<precioTotalSinImpuesto>28.89</precioTotalSinImpuesto>
+		<detallesAdicionales>
+			<detAdicional nombre="bultos" valor="1"/>
+			<detAdicional nombre="unidades" valor="0"/>
+		</detallesAdicionales>
+	<impuestos>
+		<impuesto>
+			<codigo>2</codigo>
+			<codigoPorcentaje>0</codigoPorcentaje>
+			<tarifa>0</tarifa>
+			<baseImponible>28.89</baseImponible>
+			<valor>0</valor>
+		</impuesto>
+	</impuestos>
+	</detalle>
+	<detalle>
+		<codigoPrincipal>7705959881160</codigoPrincipal>
+		<descripcion>PREGABALINA CAP 150 MG GENFAR</descripcion>
+		<cantidad>30</cantidad>
+		<precioUnitario>0.963</precioUnitario>
+		<descuento>28.89</descuento>
+		<precioTotalSinImpuesto>0</precioTotalSinImpuesto>
+		<detallesAdicionales>
+			<detAdicional nombre="bultos" valor="1"/>
+			<detAdicional nombre="unidades" valor="0"/>
+		</detallesAdicionales>
+	<impuestos>
+		<impuesto>
+			<codigo>2</codigo>
+			<codigoPorcentaje>0</codigoPorcentaje>
+			<tarifa>0</tarifa>
+			<baseImponible>0</baseImponible>
+			<valor>0</valor>
+		</impuesto>
+	</impuestos>
+	</detalle>
+	<detalle>
+		<codigoPrincipal>7862102714321</codigoPrincipal>
+		<descripcion>CLODOPAN TAB. 10 MG</descripcion>
+		<cantidad>6</cantidad>
+		<precioUnitario>0.265</precioUnitario>
+		<descuento>0.29</descuento>
+		<precioTotalSinImpuesto>1.3</precioTotalSinImpuesto>
+		<detallesAdicionales>
+			<detAdicional nombre="bultos" valor="0"/>
+			<detAdicional nombre="unidades" valor="6"/>
+		</detallesAdicionales>
+	<impuestos>
+		<impuesto>
+			<codigo>2</codigo>
+			<codigoPorcentaje>0</codigoPorcentaje>
+			<tarifa>0</tarifa>
+			<baseImponible>1.3</baseImponible>
+			<valor>0</valor>
+		</impuesto>
+	</impuestos>
+	</detalle>
+	<detalle>
+		<codigoPrincipal>7861132423807</codigoPrincipal>
+		<descripcion>HISTACALM LOCION ROSADA FCO 100 ML</descripcion>
+		<cantidad>1</cantidad>
+		<precioUnitario>3.36</precioUnitario>
+		<descuento>0.57</descuento>
+		<precioTotalSinImpuesto>2.79</precioTotalSinImpuesto>
+		<detallesAdicionales>
+			<detAdicional nombre="bultos" valor="1"/>
+			<detAdicional nombre="unidades" valor="0"/>
+		</detallesAdicionales>
+	<impuestos>
+		<impuesto>
+			<codigo>2</codigo>
+			<codigoPorcentaje>0</codigoPorcentaje>
+			<tarifa>0</tarifa>
+			<baseImponible>2.79</baseImponible>
+			<valor>0</valor>
+		</impuesto>
+	</impuestos>
+	</detalle>
+</detalles>
+<infoAdicional>
+	<campoAdicional nombre="pIva">12</campoAdicional>
+	<campoAdicional nombre="Direccion">DIRECCION DE PRUEBAS</campoAdicional>
+	<campoAdicional nombre="Telefono">5555555</campoAdicional>
+	<campoAdicional nombre="Email">pruebas@hotmail.com</campoAdicional>
+	<campoAdicional nombre="Vencimiento">03/05/2023</campoAdicional>
+	<campoAdicional nombre="Zona">ZONA 1</campoAdicional>
+	<campoAdicional nombre="Usuario">JIMENEZ GAONA ERIKA BRIGGETTE 1104534951</campoAdicional>
+	<campoAdicional nombre="FormaPago">Contado</campoAdicional>
+</infoAdicional>
+</factura>]]></comprobante>
+<mensajes/>
+</autorizacion>

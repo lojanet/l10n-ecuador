@@ -297,7 +297,7 @@ msgid "Ecuadorian Withhold"
 msgstr "Retención de Impuestos Ecuatoriano"
 
 #. module: l10n_ec_import_edi
-#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__l10n_ec_electronic_authorization
+#: model:ir.model.fields,field_description:l10n_ec_import_edi.field_l10n_ec_edi_imported__l10n_ec_authorization_number
 msgid "Electronic Authorization"
 msgstr "Autorización electrónica"
 
